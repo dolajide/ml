@@ -9,8 +9,11 @@ import numpy as np
 from sklearn.datasets import load_iris
 from sklearn import tree
 import pydotplus
+#viz code
+from sklearn.externals.six import StringIO
+
 iris = load_iris()
-test_idx = [0,50,100]
+test_idx = [0, 50, 100]
 
 #training data
 training_label = np.delete(iris.target, test_idx)
@@ -25,8 +28,6 @@ clf.fit(train_data, training_label)
 print(test_label)
 print(clf.predict(test_data))
 
-#viz code
-from sklearn.externals.six import StringIO
 # import pydotplus
 dot_data = StringIO()
 tree.export_graphviz(clf, 
